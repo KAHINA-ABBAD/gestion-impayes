@@ -24,5 +24,8 @@ desktop.ini
 .vscode/
 .idea/
 
+# Claude
+.claude/
+
 # Logs
 *.log
