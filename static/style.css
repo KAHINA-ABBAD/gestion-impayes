@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Avenir Next', 'Nunito', 'Segoe UI', sans-serif;
+    background: #E6F1F2;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    color: #29636C;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(7, 114, 131, 0.10);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+}
+
+.navbar-logo {
+    height: 38px;
+    object-fit: contain;
+}
+
+.container {
+    max-width: 860px;
+    margin: 20px auto 0;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 40px rgba(7, 114, 131, 0.12);
+    overflow: hidden;
+}
+
+/* ── HEADER ── */
+.header {
+    background: #077283;
+    padding: 24px 36px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-text h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.3px;
+}
+
+.header-text p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 4px;
+}
+
+.badge-connected {
+    margin-left: auto;
+    padding: 6px 14px;
+    background: rgba(232, 159, 106, 0.25);
+    border: 1px solid rgba(232, 159, 106, 0.6);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #E89F6A;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ── CONTENT ── */
+.content {
+    padding: 32px 36px;
+}
+
+/* ── MODE SELECTOR ── */
+.mode-selector {
+    background: #E6F1F2;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 28px;
+}
+
+.mode-selector h3 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #077283;
+    margin-bottom: 14px;
+}
+
+.mode-options {
+    display: flex;
+    gap: 12px;
+}
+
+.mode-option {
+    flex: 1;
+    padding: 14px 16px;
+    border: 2px solid #b8d8dc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-align: center;
+    background: #ffffff;
+}
+
+.mode-option:hover {
+    border-color: #E89F6A;
+    background: #fff8f4;
+}
+
+.mode-option.active {
+    border-color: #E89F6A;
+    background: #E89F6A;
+    color: white;
+}
+
+.mode-option.active label {
+    color: white;
+}
+
+.mode-option input[type="radio"] {
+    display: none;
+}
+
+.mode-option label {
+    cursor: pointer;
+    display: block;
+    font-weight: 700;
+    font-size: 14px;
+    color: #29636C;
+}
+
+.mode-icon {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+/* ── FILE SECTIONS ── */
+.file-section {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #d0e8eb;
+    border-radius: 10px;
+    background: #f7fbfc;
+}
+
+.file-section.hidden {
+    display: none;
+}
+
+.file-section h4 {
+    margin-bottom: 6px;
+    color: #077283;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.file-section .description {
+    font-size: 13px;
+    color: #5a8a91;
+    margin-bottom: 14px;
+    line-height: 1.5;
+}
+
+.file-input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.file-input-group input[type="text"] {
+    flex: 1;
+    padding: 11px 14px;
+    border: 1px solid #b8d8dc;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+    color: #29636C;
+    font-family: inherit;
+}
+
+.file-input-group input[type="text"]:disabled {
+    background: #eef5f6;
+    cursor: default;
+}
+
+.file-input-group input[type="file"] {
+    display: none;
+}
+
+/* ── BADGES ── */
+.badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-required {
+    background: #E89F6A;
+    color: white;
+}
+
+.badge-optional {
+    background: #b8d8dc;
+    color: #077283;
+}
+
+/* ── BUTTONS ── */
+.btn {
+    padding: 11px 20px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+}
+
+.btn-browse {
+    background: #077283;
+    color: white;
+    border-color: #077283;
+    white-space: nowrap;
+}
+
+.btn-browse:hover {
+    background: white;
+    color: #077283;
+}
+
+.btn-generate {
+    width: 100%;
+    padding: 16px;
+    background: #E89F6A;
+    color: white;
+    font-size: 16px;
+    border-color: #E89F6A;
+    border-radius: 8px;
+    margin-top: 28px;
+    letter-spacing: 0.5px;
+}
+
+.btn-generate:hover:not(:disabled) {
+    background: white;
+    color: #E89F6A;
+    box-shadow: 0 4px 16px rgba(232, 159, 106, 0.3);
+    transform: translateY(-1px);
+}
+
+.btn-generate:disabled {
+    background: #b8d8dc;
+    border-color: #b8d8dc;
+    color: white;
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.7;
+}
+
+/* ── DATE ── */
+.date-input-group {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #d0e8eb;
+    border-radius: 10px;
+    background: #f7fbfc;
+}
+
+.date-input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 700;
+    color: #077283;
+    font-size: 15px;
+}
+
+.date-input-group .description {
+    font-size: 13px;
+    color: #5a8a91;
+    margin-bottom: 12px;
+}
+
+.date-input-group input[type="date"] {
+    padding: 11px 14px;
+    border: 1px solid #b8d8dc;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #29636C;
+    font-family: inherit;
+    background: white;
+}
+
+/* ── ALERTS ── */
+.alert {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    display: none;
+}
+
+.alert.success {
+    background: #e6f4ea;
+    border: 1px solid #a8d5b0;
+    color: #1e6b34;
+}
+
+.alert.error {
+    background: #fdecea;
+    border: 1px solid #f5b9b4;
+    color: #8b1a14;
+}
+
+.alert.info {
+    background: #E6F1F2;
+    border: 1px solid #b8d8dc;
+    color: #077283;
+}
+
+/* ── LOG ── */
+.log-section {
+    margin-top: 28px;
+    padding: 20px;
+    background: #E6F1F2;
+    border-radius: 10px;
+}
+
+.log-section h4 {
+    margin-bottom: 12px;
+    color: #077283;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.log-content {
+    font-family: 'Courier New', monospace;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: #29636C;
+    white-space: pre-wrap;
+    background: white;
+    padding: 14px;
+    border-radius: 6px;
+    min-height: 90px;
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.log-content.empty {
+    color: #8ab5ba;
+    font-style: italic;
+}
+
+/* ── STATUS BAR ── */
+.status-bar {
+    padding: 14px 36px;
+    background: #29636C;
+    color: rgba(255,255,255,0.85);
+    font-size: 12.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #E89F6A;
+    animation: pulse 2s infinite;
+}
+
+.status-dot.processing {
+    background: #ffc107;
+}
+
+.status-dot.error {
+    background: #e74c3c;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.spinner {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 3px solid rgba(255,255,255,.35);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 0.9s ease-in-out infinite;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+    .header { flex-wrap: wrap; padding: 20px; }
+    .badge-connected { margin-left: 0; }
+    .content { padding: 20px; }
+    .mode-options { flex-direction: column; }
+    .status-bar { padding: 12px 20px; }
+}

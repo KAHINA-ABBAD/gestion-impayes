@@ -1,0 +1,28 @@
+# Python
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environnement virtuel
+.venv/
+
+# Données sensibles
+data/
+
+# Flask uploads temporaires
+instance/
+*.db
+*.sqlite
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log

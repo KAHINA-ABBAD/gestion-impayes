@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi des Impayés – La Communauté</title>
+    <link rel="shortcut icon" href="/static/images/Logo.png">
+    <link rel="icon" type="image/png" href="/static/images/Logo.png">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- En-tête -->
+        <div class="header">
+            <div style="display:flex; align-items:center; gap:12px; flex:1;">
+                <img src="/static/images/Logo_.png" alt="La Communauté" style="height:48px; width:190px; object-fit:contain; flex-shrink:0; border-radius:6px; padding:4px;">
+                <div class="header-text">
+                    <h1>Suivi des Impayés Clients</h1>
+                    <p>Génération et actualisation des fichiers Excel</p>
+                </div>
+            </div>
+            <span class="badge-connected">&#x2713; Serveur connecté</span>
+        </div>
+
+        <!-- Contenu principal -->
+        <div class="content">
+            <form id="generate-form" enctype="multipart/form-data">
+
+                <!-- Mode -->
+                <div class="mode-selector">
+                    <h3>Mode d'opération</h3>
+                    <div class="mode-options">
+                        <div class="mode-option active" onclick="selectMode('creer')">
+                            <input type="radio" name="mode" id="mode-creer" value="creer" checked>
+                            <label for="mode-creer">
+                                <span class="mode-icon">&#x1F4C4;</span>
+                                Créer un nouveau fichier
+                            </label>
+                        </div>
+                        <div class="mode-option" onclick="selectMode('actualiser')">
+                            <input type="radio" name="mode" id="mode-actualiser" value="actualiser">
+                            <label for="mode-actualiser">
+                                <span class="mode-icon">&#x1F504;</span>
+                                Actualiser un fichier existant
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fichier existant (mode actualiser) -->
+                <div id="section-existant" class="file-section hidden">
+                    <h4>
+                        &#x1F4C2; Fichier Excel existant
+                        <span class="badge badge-required">Obligatoire</span>
+                    </h4>
+                    <p class="description">Sélectionnez le fichier Excel à actualiser</p>
+                    <div class="file-input-group">
+                        <input type="text" id="fichier-existant-display" placeholder="Aucun fichier sélectionné" disabled>
+                        <input type="file" id="fichier-existant" name="fichier_existant" accept=".xlsx">
+                        <button type="button" class="btn btn-browse" onclick="document.getElementById('fichier-existant').click()">
+                            Parcourir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Export comptable -->
+                <div class="file-section">
+                    <h4>
+                        &#x1F4CA; Export comptable
+                        <span class="badge badge-required">Obligatoire</span>
+                    </h4>
+                    <p class="description">
+                        Fichier CSV ou Excel — format standard (6 colonnes) ou format Arche (10 colonnes, conversion automatique).
+                    </p>
+                    <div class="file-input-group">
+                        <input type="text" id="fichier-brut-display" placeholder="Aucun fichier sélectionné" disabled>
+                        <input type="file" id="fichier-brut" name="fichier_brut" accept=".csv,.xlsx,.xls" required>
+                        <button type="button" class="btn btn-browse" onclick="document.getElementById('fichier-brut').click()">
+                            Parcourir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Comptes clôturés -->
+                <div class="file-section">
+                    <h4>
+                        &#x1F512; Comptes clôturés
+                        <span class="badge badge-optional">Optionnel</span>
+                    </h4>
+                    <p class="description">Fichier CSV ou Excel listant les comptes tiers clôturés</p>
+                    <div class="file-input-group">
+                        <input type="text" id="fichier-clotures-display" placeholder="Aucun fichier sélectionné" disabled>
+                        <input type="file" id="fichier-clotures" name="fichier_clotures" accept=".csv,.xlsx,.xls">
+                        <button type="button" class="btn btn-browse" onclick="document.getElementById('fichier-clotures').click()">
+                            Parcourir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Date -->
+                <div class="date-input-group">
+                    <label for="date-reference">&#x1F4C5; Date de référence</label>
+                    <p class="description">Utilisée dans le nom du fichier généré (format AAAA-MM-JJ)</p>
+                    <input type="date" id="date-reference" name="date" required>
+                </div>
+
+                <!-- Alerte -->
+                <div id="alert-message" class="alert"></div>
+
+                <!-- Bouton -->
+                <button type="submit" id="btn-generate" class="btn btn-generate">
+                    Générer le fichier
+                </button>
+
+            </form>
+
+            <!-- Journal -->
+            <div class="log-section">
+                <h4>Journal d'exécution</h4>
+                <div id="log-content" class="log-content empty">En attente...</div>
+            </div>
+        </div>
+
+        <!-- Barre de statut -->
+        <div class="status-bar">
+            <div class="status-indicator">
+                <div id="status-dot" class="status-dot"></div>
+                <span id="status-text">Prêt</span>
+            </div>
+            <span>La Communauté &mdash; Outil de gestion des impayés v1.1</span>
+        </div>
+
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
